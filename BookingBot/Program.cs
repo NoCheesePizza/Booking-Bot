@@ -6,11 +6,6 @@ using RestSharp;
 using System.Text.Json;
 using Newtonsoft.Json;
 using System.Globalization;
-using OpenQA.Selenium.DevTools.V113.Preload;
-using Newtonsoft.Json.Linq;
-using OpenQA.Selenium.DevTools;
-using OpenQA.Selenium.DevTools.V113.Target;
-using OpenQA.Selenium.DevTools.V113.Cast;
 
 class Program
 {
