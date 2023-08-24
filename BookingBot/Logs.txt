@@ -17,3 +17,7 @@
 [24/08/2023 17:48:37] The OK button was clicked. Reason: You have exceeded your available credits.
 [24/08/2023 17:50:13] GCC Booking Bot has been stopped.
  
+[24/08/2023 23:17:42] GCC Booking Bot has started.
+[24/08/2023 23:19:56] The OK button was clicked. Reason: You have exceeded your available credits.
+[24/08/2023 23:20:04] GCC Booking Bot has been stopped.
+ 
