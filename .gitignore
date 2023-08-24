@@ -4,6 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # Files I don't want you to see
+Preferences.json
 
 # User-specific files
 *.rsuser
