@@ -24,3 +24,15 @@
 [24/08/2023 23:46:18] GCC Booking Bot has started.
 [24/08/2023 23:46:23] GCC Booking Bot has been stopped.
  
+[25/08/2023 19:37:04] GCC Booking Bot has started.
+[25/08/2023 19:47:10] GCC Booking Bot has been stopped.
+ 
+[26/08/2023 17:56:58] GCC Booking Bot has started.
+[26/08/2023 17:57:06] GCC Booking Bot has been stopped.
+ 
+ 
+[27/08/2023 00:08:26] Booking Bot has started.
+[27/08/2023 00:11:30] Booking Bot has been stopped.
+[27/08/2023 00:11:51] Booking Bot has started.
+[27/08/2023 00:12:52] Booking Bot has been stopped.
+ 
