@@ -28,17 +28,15 @@
 
 ### Book discussion rooms
 
-This is the only feature that has been added as of v1.0. The other two below have already been developed and tested in Powershell but have yet to be ported over to C# and integrated into this catch-all Telegram bot. 
-
 The core feature of this bot is its ability to book discussion rooms in SIT@SP, thus forgoing users the need to thrawl through SIT's cumbersome mobile website. It can pick the highest priority room that is available, and can even show users the available timeslots for each of the rooms. What's more, users can easily view and cancel their bookings at any point in time through Telegram.
 
 ### Give homework report
 
-This bot can log into my Moodle account and fetch all upcoming submissions from the calendar page. Then, it can format the data nicely by grouping submissions on the same date together and send the result on Telegram for everyone in the group chat to see (and panic).
+This bot can log into my Moodle account and fetch all upcoming submissions from the calendar page. Then, it can format the data nicely by grouping submissions on the same date together and send the result on Telegram for everyone to see (and panic).
 
 ### Find available badminton courts
 
-Lastly, this bot can make requests to the OnePA API (unfortunately I'm only limited to 10 per minute) to get the available timeslots for badminton courts in a select few CCs in the central or east region of Singapore (1 request per CC).
+This bot interacts with the OnePA API, though it is unfortunately limited to just 10 requests per minute. It retrieves available badminton court timeslots from a select few CCs in the central or east region of Singapore, with each CC requiring its own request.
 
 ## Version Table
 
