@@ -4,7 +4,7 @@ using OpenQA.Selenium.DevTools;
 using RestSharp;
 using System;
 
-class Telegram
+public class Telegram
 {
     protected class InlineButton
     {
@@ -18,18 +18,27 @@ class Telegram
         }
     }
 
+    /// <remarks>
+    /// cannot be blank
+    /// </remarks>
     class MessageContent
     {
         [JsonProperty("result")]
         public Message? message;
     }
 
+    /// <remarks>
+    /// cannot be blank
+    /// </remarks>
     class UpdatesContent
     {
         [JsonProperty("result")]
         public List<Update>? updates;
     }
 
+    /// <remarks>
+    /// cannot be blank but updates.Count may be 0
+    /// </remarks>
     class Update
     {
         [JsonProperty("callback_query")]
@@ -42,6 +51,9 @@ class Telegram
         public int? updateId;
     }
 
+    /// <remarks>
+    /// can be blank
+    /// </remarks>
     class Message
     {
         [JsonProperty("date")]
@@ -51,6 +63,9 @@ class Telegram
         public string? text;
     }
 
+    /// <remarks>
+    /// can be blank
+    /// </remarks>
     class CallbackQuery
     {
         [JsonProperty("message")]
@@ -60,8 +75,9 @@ class Telegram
         public string? data;
     }
 
+    public const string chat = "george";
+    static string target = Local.chats![chat];
     static int offset = 0;
-    static string target = Local.chats!["george"];
 
     static RestClient messageClient = new RestClient($"https://api.telegram.org/bot{Local.token}/sendMessage"),
                       photoClient = new RestClient($"https://api.telegram.org/bot{Local.token}/sendPhoto"),
@@ -71,7 +87,7 @@ class Telegram
     {
         { "/help", sendHelp },
         { "/stop", null },
-        { "/bookingbot", Booking.BookingTelegram.startBot }
+        { "/bookingbot", BookingTelegram.startBot }
     };
 
     static void sendHelp()
@@ -79,11 +95,11 @@ class Telegram
         sendMessage
         (
             "<u>Commands</u>" +
-            "\n\n<b>/help:</b> Gets a list of available commands and a brief description of what they do" +
-            "\n\n<b>/stop:</b> Stops the bot" +
-            "\n\n<b>/bookingbot:</b> Starts Booking Bot, allowing you to book, view, and cancel discussion rooms at SIT@SP via RBS" +
-            "\n\n<b>/homeworkbot:</b> Starts Homework Bot, giving you a sorted list of all upcoming submissions (except those in xSiTe)" +
-            "\n\n<b>/badmintonbot:</b> Starts Badminton Bot, allowing you to check the available badminton court timeslots for your preferred day and region"
+            "\n\n/help: Gets a list of available commands and a brief description of what they do" +
+            "\n\n/stop: Stops the bot" +
+            "\n\n/bookingbot: Starts Booking Bot, allowing you to book, view, and cancel discussion rooms at SIT@SP via RBS" +
+            "\n\n/homeworkbot: Starts Homework Bot, giving you a sorted list of all upcoming submissions (except those in xSiTe)" +
+            "\n\n/badmintonbot: Starts Badminton Bot, allowing you to check the available badminton court timeslots for your preferred day and region"
         );
     }
 
@@ -97,12 +113,18 @@ class Telegram
             }
         );
 
-        RestResponse response = updatesClient.Get(request);
-        if (response.Content == null)
+        RestResponse? response = null;
+
+        try
+        { response = updatesClient.Get(request); }
+        catch
+        { Local.log($"Unable to get request from {updatesClient.BuildUri(request)}", true, false); }
+
+        UpdatesContent? content = JsonConvert.DeserializeObject<UpdatesContent>(response!.Content!);
+        if (content!.updates!.Count == 0)
             return;
 
-        UpdatesContent? content = JsonConvert.DeserializeObject<UpdatesContent>(response.Content);
-        offset = content!.updates![content.updates.Count - 1].updateId!.Value;
+        offset = content.updates[content.updates.Count - 1].updateId!.Value;
     }
 
     public static bool getCommand()
@@ -116,15 +138,17 @@ class Telegram
         );
 
         string? command;
+        RestResponse? response;
         
         while (true)
         {
-            command = null;
-            RestResponse response = updatesClient.Get(request.AddParameter("offset", offset + 1));
-            if (response.Content == null)
-                continue;
+            try
+            { response = updatesClient.Get(request.AddParameter("offset", offset + 1)); }
+            catch
+            { continue; }
 
-            UpdatesContent? content = JsonConvert.DeserializeObject<UpdatesContent>(response.Content);
+            command = null;
+            UpdatesContent? content = JsonConvert.DeserializeObject<UpdatesContent>(response!.Content!);
 
             foreach (Update update in content!.updates!)
             {
@@ -139,6 +163,7 @@ class Telegram
 
             if (command != null)
                 break;
+
             Thread.Sleep(1000);
         }
 
@@ -153,10 +178,7 @@ class Telegram
 
     protected static string sendInlineButtons(List<List<InlineButton>> inlineButtons, string message)
     {
-        RestRequest messageRequest = new RestRequest();
-        RestRequest updatesRequest = new RestRequest();
-
-        messageRequest.AddJsonBody
+        RestRequest messageRequest = new RestRequest().AddJsonBody
         (
             new
             {
@@ -167,7 +189,7 @@ class Telegram
             }
         );
 
-        updatesRequest.AddJsonBody
+        RestRequest updatesRequest = new RestRequest().AddJsonBody
         (
             new
             {
@@ -175,25 +197,26 @@ class Telegram
             }
         );
 
-        int date;
-        MessageContent? messageContent = null;
-        RestResponse messageResponse = messageClient.Get(messageRequest);
+        RestResponse? messageResponse = null,
+                      updatesResponse; 
 
-        if (messageResponse.Content == null)
-            Local.log("Unable to get content of sent message containing inline keyboard", true, false);
-        else
-            messageContent = JsonConvert.DeserializeObject<MessageContent>(messageResponse.Content);
-
-        date = messageContent!.message!.date!.Value;
+        try
+        { messageResponse = messageClient.Get(messageRequest); }
+        catch
+        { Local.log($"Unable to get request from {messageClient.BuildUri(messageRequest)}", true, false); }
+        
+        MessageContent? messageContent = JsonConvert.DeserializeObject<MessageContent>(messageResponse!.Content!);
+        int date = messageContent!.message!.date!.Value;
 
         // wait for response
         while (true)
         {
-            RestResponse updatesResponse = updatesClient.Get(updatesRequest);
-            if (updatesResponse.Content == null)
-                continue;
+            try
+            { updatesResponse = updatesClient.Get(updatesRequest); }
+            catch
+            { continue; }
 
-            UpdatesContent? updatesContent = JsonConvert.DeserializeObject<UpdatesContent>(updatesResponse.Content);
+            UpdatesContent? updatesContent = JsonConvert.DeserializeObject<UpdatesContent>(updatesResponse!.Content!);
             if (updatesContent!.updates!.Count == 0)
                 continue;
 
@@ -207,27 +230,21 @@ class Telegram
 
     public static void sendMessage(string message)
     {
-        RestRequest request = new RestRequest();
-
-        request.AddJsonBody
+        messageClient.Get(new RestRequest().AddJsonBody
         (
-        new
+            new
             {
                 chat_id = target,
                 text = message,
                 parse_mode = "HTML"
             }
-        );
-
-        messageClient.Get(request);
+        ));
     }
 
     public static void sendPhoto(string filePath, string caption = "")
     {
-        RestRequest request = new RestRequest();
-        request.AddParameter("chat_id", target)
-               .AddParameter("caption", caption)
-               .AddFile("photo", "screenshot.jpg");
-        photoClient.Get(request);
+        photoClient.Get(new RestRequest().AddParameter("chat_id", target)
+                                         .AddParameter("caption", caption)
+                                         .AddFile("photo", "screenshot.jpg"));
     }
 }

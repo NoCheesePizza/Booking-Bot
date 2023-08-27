@@ -1,22 +1,23 @@
 ﻿using OpenQA.Selenium.Edge;
-using static Booking;
 
 class Program
 {
     static void Main()
     {
         // init
-        Local.openLogFile();
         Local.readPreferencesFromFile();
         Local.setPreferences(Local.readPreferences);
-        Telegram.sendMessage("GCC-Bot has started.");
-        Telegram.getOffset();
+        Local.log($"GCC-Bot has started in {Telegram.chat} chat.", false, true);
 
         // update
-        while (Telegram.getCommand());
+        do
+        {
+            Telegram.getOffset();
+        } while (Telegram.getCommand());
 
         // exit
-        Telegram.sendMessage("GCC-Bot has been stopped.");
+        Local.log($"GCC-Bot has been stopped in {Telegram.chat} chat.", false, true);
+        Selenium.stopWebDriver();
         Local.closeLogFile();
     }
 }

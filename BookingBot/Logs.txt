@@ -1,38 +1,9 @@
-[24/08/2023 15:27:27] GCC Booking Bot has started.
-[24/08/2023 15:27:44] GCC Booking Bot has been stopped.
- 
-[24/08/2023 16:48:30] GCC Booking Bot has started.
-[24/08/2023 16:49:00] GCC Booking Bot has been stopped.
- 
-[24/08/2023 17:05:02] GCC Booking Bot has started.
-[24/08/2023 17:07:24] GCC Booking Bot has been stopped.
- 
-[24/08/2023 17:22:59] GCC Booking Bot has started.
-[24/08/2023 17:23:32] GCC Booking Bot has been stopped.
- 
-[24/08/2023 17:24:24] GCC Booking Bot has started.
-[24/08/2023 17:32:16] GCC Booking Bot has been stopped.
- 
-[24/08/2023 17:46:55] GCC Booking Bot has started.
-[24/08/2023 17:48:37] The OK button was clicked. Reason: You have exceeded your available credits.
-[24/08/2023 17:50:13] GCC Booking Bot has been stopped.
- 
-[24/08/2023 23:17:42] GCC Booking Bot has started.
-[24/08/2023 23:19:56] The OK button was clicked. Reason: You have exceeded your available credits.
-[24/08/2023 23:20:04] GCC Booking Bot has been stopped.
- 
-[24/08/2023 23:46:18] GCC Booking Bot has started.
-[24/08/2023 23:46:23] GCC Booking Bot has been stopped.
- 
-[25/08/2023 19:37:04] GCC Booking Bot has started.
-[25/08/2023 19:47:10] GCC Booking Bot has been stopped.
- 
-[26/08/2023 17:56:58] GCC Booking Bot has started.
-[26/08/2023 17:57:06] GCC Booking Bot has been stopped.
- 
- 
-[27/08/2023 00:08:26] Booking Bot has started.
-[27/08/2023 00:11:30] Booking Bot has been stopped.
-[27/08/2023 00:11:51] Booking Bot has started.
-[27/08/2023 00:12:52] Booking Bot has been stopped.
+[27/08/2023 11:41:41] GCC-Bot has started in george chat.
+[27/08/2023 11:42:25] Booking Bot has started.
+[27/08/2023 11:42:43] Booking Bot has been stopped.
+[27/08/2023 11:42:58] Booking Bot has started.
+[27/08/2023 11:43:39] Booking Bot has been stopped.
+[27/08/2023 11:43:47] Booking Bot has started.
+[27/08/2023 11:44:00] Booking Bot has been stopped.
+[27/08/2023 11:44:03] GCC-Bot has been stopped in george chat.
  
