@@ -7,3 +7,85 @@
 [27/08/2023 11:44:00] Booking Bot has been stopped.
 [27/08/2023 11:44:03] GCC-Bot has been stopped in george chat.
  
+[28/08/2023 11:42:50] GCC-Bot has started in george chat.
+[28/08/2023 11:43:02] GCC-Bot has been stopped in george chat.
+ 
+[28/08/2023 11:43:13] GCC-Bot has started in george chat.
+[28/08/2023 11:43:22] Booking Bot has started.
+[28/08/2023 11:44:26] Booking Bot has been stopped.
+[28/08/2023 11:44:30] Booking Bot has started.
+[28/08/2023 11:45:40] Booking Bot has been stopped.
+[28/08/2023 11:45:47] Booking Bot has started.
+[28/08/2023 11:49:30] Booking Bot has been stopped.
+[28/08/2023 11:49:36] Booking Bot has started.
+[28/08/2023 11:49:44] Booking Bot has been stopped.
+[28/08/2023 11:49:47] GCC-Bot has been stopped in george chat.
+ 
+[30/08/2023 19:02:52] GCC-Bot has started in imgg chat.
+[30/08/2023 19:02:57] Booking Bot has started.
+[30/08/2023 19:05:17] Booking Bot has been stopped.
+[30/08/2023 19:05:23] GCC-Bot has been stopped in imgg chat.
+ 
+[02/09/2023 11:42:47] GCC-Bot has started in imgg chat.
+[02/09/2023 11:43:00] Booking Bot has started.
+[02/09/2023 11:45:54] Booking Bot has been stopped.
+[02/09/2023 11:46:01] GCC-Bot has been stopped in imgg chat.
+ 
+[12/09/2023 00:55:45] GCC-Bot has started in imgg chat.
+[12/09/2023 00:56:38] Booking Bot has started.
+[12/09/2023 00:56:57] Booking Bot has been stopped.
+[12/09/2023 00:57:01] GCC-Bot has been stopped in imgg chat.
+ 
+[12/09/2023 01:00:39] GCC-Bot has started in imgg chat.
+[12/09/2023 01:01:42] GCC-Bot has been stopped in imgg chat.
+ 
+[17/09/2023 19:38:12] GCC-Bot has started in imgg chat.
+[17/09/2023 19:38:23] Booking Bot has started.
+[17/09/2023 19:39:36] Booking Bot has been stopped.
+[17/09/2023 19:39:41] GCC-Bot has been stopped in imgg chat.
+ 
+[19/09/2023 00:28:48] GCC-Bot has started in imgg chat.
+[19/09/2023 00:28:58] Booking Bot has started.
+[19/09/2023 00:31:54] Booking Bot has been stopped.
+[19/09/2023 00:32:03] GCC-Bot has been stopped in imgg chat.
+ 
+[20/09/2023 12:19:53] GCC-Bot has started in imgg chat.
+[20/09/2023 12:20:14] Booking Bot has started.
+[20/09/2023 12:21:22] The OK button was clicked. Reason: .
+[20/09/2023 12:22:43] Booking Bot has been stopped.
+[20/09/2023 12:22:50] GCC-Bot has been stopped in imgg chat.
+ 
+[22/09/2023 12:12:20] GCC-Bot has started in imgg chat.
+[22/09/2023 12:13:07] Booking Bot has started.
+[22/09/2023 12:17:10] Booking Bot has been stopped.
+[22/09/2023 12:17:24] GCC-Bot has been stopped in imgg chat.
+ 
+[28/09/2023 11:53:43] GCC-Bot has started in imgg chat.
+[28/09/2023 11:53:53] Booking Bot has started.
+[28/09/2023 11:55:47] The OK button was clicked. Reason: You are not allowed to book more than 1 resource at the same date and time..
+[28/09/2023 12:00:25] Booking Bot has been stopped.
+[28/09/2023 12:00:30] GCC-Bot has been stopped in imgg chat.
+ 
+[29/09/2023 14:09:55] GCC-Bot has started in imgg chat.
+[29/09/2023 14:10:12] Booking Bot has started.
+[29/09/2023 14:19:30] Booking Bot has been stopped.
+[29/09/2023 14:19:34] GCC-Bot has been stopped in imgg chat.
+ 
+[01/10/2023 16:38:44] GCC-Bot has started in imgg chat.
+[01/10/2023 16:38:54] Booking Bot has started.
+[01/10/2023 16:40:59] Booking Bot has been stopped.
+[01/10/2023 16:41:02] GCC-Bot has been stopped in imgg chat.
+ 
+[13/10/2023 12:36:02] GCC-Bot has started in imgg chat.
+[13/10/2023 12:36:15] Booking Bot has started.
+[13/10/2023 12:41:53] Booking Bot has been stopped.
+[13/10/2023 12:41:57] GCC-Bot has been stopped in imgg chat.
+ 
+[19/10/2024 12:08:27] GCC-Bot has started in george chat.
+[19/10/2024 12:08:33] Booking Bot has started.
+[19/10/2024 12:08:59] Unable to get request from https://api.telegram.org/bot5783193474:AAHEszy5GzeGFwLJCg1Ins921xf-tiXSSm0/sendMessage
+ 
+[19/10/2024 12:09:26] GCC-Bot has started in george chat.
+[19/10/2024 12:09:34] Booking Bot has started.
+[19/10/2024 12:09:45] Unable to get request from https://api.telegram.org/bot5783193474:AAHEszy5GzeGFwLJCg1Ins921xf-tiXSSm0/sendMessage
+ 

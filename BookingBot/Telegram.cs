@@ -183,6 +183,7 @@ public class Telegram
             new
             {
                 chat_id = target,
+                //message_thread_id = 2, //todo only for imgg
                 text = message,
                 parse_mode = "HTML",
                 reply_markup = new { inline_keyboard = inlineButtons }
@@ -235,6 +236,7 @@ public class Telegram
             new
             {
                 chat_id = target,
+                //message_thread_id = 2, //todo only for imgg
                 text = message,
                 parse_mode = "HTML"
             }
@@ -245,6 +247,7 @@ public class Telegram
     {
         photoClient.Get(new RestRequest().AddParameter("chat_id", target)
                                          .AddParameter("caption", caption)
+                                         //.AddParameter("message_thread_id", 2) //todo only for imgg
                                          .AddFile("photo", "screenshot.jpg"));
     }
 }

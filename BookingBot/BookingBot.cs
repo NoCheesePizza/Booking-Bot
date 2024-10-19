@@ -295,7 +295,15 @@ public class BookingSelenium : Selenium
 
     static void goToWebsite(string url) // the url of the page you're trying to go to
     {
-        driver.Navigate().GoToUrl(url);
+        try
+        {
+            driver.Navigate().GoToUrl(url);
+        }
+        catch (Exception e) 
+        {
+            Telegram.sendMessage($"URL: {url}\nError: {e.Message}");
+            Console.WriteLine(e.Message);
+        }
 
         // check if need to login
         try
@@ -318,8 +326,9 @@ public class BookingSelenium : Selenium
     static void getMinutesLeft()
     {
         goToWebsite("https://rbs.singaporetech.edu.sg/MQT001/MQT001Page");
-        waitUntilDisplayed("//*[@id=\"tblMyQuota\"]/tbody/tr[1]/td[6]", false);
-        minutesLeft = Convert.ToInt32(driver.FindElement(By.XPath("//*[@id=\"tblMyQuota\"]/tbody/tr[1]/td[6]")).Text);
+        waitUntilDisplayed("//*[@id=\"partialviewsupportbooking\"]/div[1]/div/div[2]/div[4]/div[2]", false);
+        string minutes = driver.FindElement(By.XPath("//*[@id=\"partialviewsupportbooking\"]/div[1]/div/div[2]/div[4]/div[2]")).Text;
+        minutesLeft = Convert.ToInt32(minutes.Substring(0, minutes.IndexOf(" Min")));
     }
 
     static void resetCurrentStep()
@@ -373,8 +382,9 @@ public class BookingSelenium : Selenium
         while (true)
             try
             {
-                // wait for start and end time to default to "xx:xx" and "22:00" respectively
-                if (new SelectElement(driver.FindElement(By.XPath("//*[@id=\"SearchHoursFrom\"]"))).SelectedOption.Text == autoStartTime.ToString("HH:mm")
+                // wait for start and end time to default to "xx:xx" / "07:00" and "22:00" respectively
+                if ((new SelectElement(driver.FindElement(By.XPath("//*[@id=\"SearchHoursFrom\"]"))).SelectedOption.Text == autoStartTime.ToString("HH:mm")
+                    || new SelectElement(driver.FindElement(By.XPath("//*[@id=\"SearchHoursFrom\"]"))).SelectedOption.Text == "07:00")
                     && new SelectElement(driver.FindElement(By.XPath("//*[@id=\"SearchHoursTo\"]"))).SelectedOption.Text == "22:00")
                     break;
                 Thread.Sleep(1000);
