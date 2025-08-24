@@ -1,3 +1,5 @@
+> This project is deprecated even if you have the required credentials! SIT updated their resource booking website and I never ported over the homework and badminton functionalities.
+
 # Telegram Bot
 *A bot to make my and my friends' lives a teeny bit more convenient*
 
